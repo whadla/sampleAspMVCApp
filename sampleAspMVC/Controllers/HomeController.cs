@@ -10,14 +10,22 @@ namespace sampleAspMVC.Controllers
     {
         public ActionResult Index()
         {
+            var controller = RouteData.Values["controller"];
+            var action = RouteData.Values["Action"];
+            var id = RouteData.Values["id"];
+            var message = String.Format("{0}::{1}::{2}", controller, action, id);
+            ViewBag.message = message;
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            var model = new sampleAspMVC.Models.AboutModel();
+            model.Name = "IR";
+            model.Location = "Kiev. Ukraine";
+            
 
-            return View();
+            return View(model);
         }
 
         public ActionResult Contact()
