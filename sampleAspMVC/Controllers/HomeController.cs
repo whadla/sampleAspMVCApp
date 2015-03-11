@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sampleAspMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,11 @@ namespace sampleAspMVC.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            var model = new AboutModel();
+            model.Name = "IR";
+            model.Location = "Kiev. Bulvarnokudryavska str 22.";
 
-            return View();
+            return View(model);
         }
 
         public ActionResult Contact()
